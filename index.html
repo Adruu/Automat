@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <div>
+        <div class="client">
+            <h1>Panel Klienta</h1>
+            <button type="button" id="przejscieNaLogowanieAdmina">Panel Admina </button>
+            <br><br>
+            <table border="2px solid black">
+                <tr>
+                    <td class="klawiatura" id="1">1</td>
+                    <td class="klawiatura" id="2">2</td>
+                    <td class="klawiatura" id="3">3</td>
+                </tr>
+                <tr>
+                    <td class="klawiatura" id="4">4</td>
+                    <td class="klawiatura" id="5">5</td>
+                    <td class="klawiatura" id="6">6</td>
+                </tr>
+                <tr>
+                    <td class="klawiatura" id="7">7</td>
+                    <td class="klawiatura" id="8">8</td>
+                    <td class="klawiatura" id="9">9</td>
+                </tr>
+            </table>
+            <h1>Dostępne produkty: </h1>
+            <p id="opcjeProdukty" class="wpisaniePro">
+
+            </p>
+        </div>
+        <div class="payment">
+            <div class="payD1">
+                <h1>Płacę: </h1>
+                <p><button type="button" id="zaplata2">2Zł</button></p>
+                <p><button type="button" id="zaplata5">5Zł</button></p>
+                <p><button type="button" id="zaplata10">10Zł</button></p>
+                <p><button type="button" id="zaplata20">20Zł</button></p>
+                <p><button type="button" id="zaplata50">50Zł</button></p>
+                <p><button type="button" id="zaplata100">100Zł</button></p>
+                <p><button type="button" id="zaplata200">200Zł</button></p>
+                <p><button type="button" id="zaplata500">500Zł</button></p>
+                <div class="sumazaplaty">
+                    Suma:
+                    <p  id="sumaPlacy"></p>
+                </div>
+
+                <p><button type="button" id="zaplataPotwierdzenie"> OK</button></p>
+            </div>
+            <div class="payD2">
+                <p>Reszta: </p>
+                <p class="payD2P2" id="payD2P2"></p>
+                <p><button type="button" id="powrutDoClienta">Powrót</button></p>
+            </div>
+        </div>
+        <div class="loginAdmin">
+            <form>
+                <p>Login: <input type="text" id="login"></p>
+                <p>Hasło: <input type="password" id="haslo"></p>
+                <button id="przeslijLog" type="button">OK</button>
+            </form>
+        </div>
+        <div class="admin">
+            <div class="adminD1">
+                <h1>Panel Admina</h1>
+                <p><button type="button" id="przejscieNaClient">Panel Clienta</button></p>
+                <p><button type="button" id="dodawanieProduktow">Dodaj Produkt</button></p>
+                <p><button type="button" id="wypisanieProduktow">Wszystkie Produkty</button></p>
+                <p><button type="button" id="dodawanieSkladnikow">Dodaj Składniki</button> </p>
+                <p><button type="button" id="wypisanieSkladnikow">Ilość Składników</button></p>
+            </div>
+            <div class="adminD2">
+                <form name="dodawanieProduktow">
+                    <p>Co to za produkt: <input type="text" name="co"> </p>
+                    <p>Cena produktu: <input type="number" name="cena"> </p>
+                    <p>Ilość potrzebnych ziaren kawy <input type="number" name="kawa"> </p>
+                    <p>Ilość potrzebnego mleka <input type="number" name="mleko"> </p>
+                    <button type="button" id="potwierdzenieProduktu">Wyślij</button>
+                </form>
+            </div>
+            <div class="adminD3">
+                <h1>Wszystkie Produkty</h1>
+                <p id="wypisanieProdwP"></p>
+                <button type="button" id="zWypisDoAmd">Powrót</button>
+            </div>
+            <div class="adminD4">
+                <form name="dodanieSkladnikow">
+                    <p>Zwiększ ilość kawy o: <input type="number" name="oIloscKawy"> </p>
+                    <p>Zwiększ ilość mleka o: <input type="number" name="oIloscMleka"></p>
+                    <button type="button" id="potwierdzenieSkladnikow">Wyślij</button>
+                </form>
+
+            </div>
+            <div class="adminD5">
+                <h1>Ilość składników</h1>
+                <p id="wypisanieSkladwP"></p>
+                <button type="button" id="zWypisaniaSkladnikowDoAdm"> Powrót </button>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="./JavaScript/Automat.js"></script>
+</body>
+
+</html>

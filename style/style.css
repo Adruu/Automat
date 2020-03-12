@@ -1,0 +1,97 @@
+body{
+    background-color: grey;
+}
+.client{
+    background-color: rgb(226, 102, 102);
+    display: block;
+    height: 700px;
+    width: 700px;
+}
+.payment{
+    background-color: rosybrown;
+    display: none;
+    height: 700px;
+    width: 700px;
+}
+.loginAdmin{
+    background-color: royalblue;
+    display: none;
+    height: 700px;
+    width: 700px;
+}
+.admin{
+    background-color: saddlebrown;
+    display: none;
+    height: 700px;
+    width: 700px;
+    
+}
+.adminD1{
+    background-color: saddlebrown;
+    display: block;
+    height: 700px;
+    width: 700px;
+}
+.adminD2{
+    background-color: rgb(192, 89, 16);
+    display: none;
+    height: 700px;
+    width: 700px;
+}
+.adminD3 {
+    background-color: rgb(231, 152, 96);
+    display: none;
+    height: 700px;
+    width: 700px;
+}
+.adminD4 {
+    background-color: rgb(231, 152, 96);
+    display: none;
+    height: 700px;
+    width: 700px;
+}
+.adminD5 {
+    background-color: rgb(231, 152, 96);
+    display: none;
+    height: 700px;
+    width: 700px;
+}
+
+.klawiatura{
+    background-color: salmon;
+    border: 2px solid black;
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20pt;
+}
+.klawiatura:hover{
+    background-color: rgb(252, 100, 84);
+    border: 1px solid black;
+}
+.wpisaniePro {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.payD1{
+    background-color: rosybrown;
+    display: block;
+    height: 700px;
+    width: 700px;
+}
+.payD2{
+    background-color: rgb(170, 97, 97);
+    display: none;
+    height: 700px;
+    width: 700px;
+}
+.sumazaplaty {
+    background-color: grey;
+    height: 70px;
+    width: 100px;
+}
+.payD2P2 {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
