@@ -11,12 +11,13 @@ const automat = {
     adminD3: document.getElementsByClassName("adminD3"),
     adminD4: document.getElementsByClassName('adminD4'),
     adminD5: document.getElementsByClassName('adminD5'),
+    adminD6: document.getElementsByClassName('adminD6'),
     mleko: 0,
     kawa: 0,
     iloscProduktow: 0,
-    tablicaProduktow: [[],],
+    tablicaProduktow: [[], [], [], [], [], [], [], [], [], []],
     powtuzenie: 1,
-    zaplata:0,
+    zaplata: 0,
 
     skladniki(kawa, mleko) {
         kawa = +kawa
@@ -47,7 +48,10 @@ const automat = {
                 this.admin[0].style.display = "block";
                 //automat.panelAdmina();
             } else {
-                this.loginAdmin[0].innerHTML = "Złe danne"
+                //this.loginAdmin[0].innerHTML = "Złe danne"
+                alert('Złe dane')
+                this.loginAdmin[0].style.display = "none";
+                this.client[0].style.display = 'block';
             }
         })
     },
@@ -138,6 +142,7 @@ const automat = {
             })
 
         })
+
         var wypisanieSkladnikow = document.getElementById('wypisanieSkladnikow');
         wypisanieSkladnikow.addEventListener('click', () => {
             this.adminD1[0].style.display = "none";
@@ -146,10 +151,23 @@ const automat = {
             wypisanieSkladwP.innerHTML = "Ilość mleka: " + this.mleko + '<br>';
             wypisanieSkladwP.innerHTML += "Ilość Kawy:" + this.kawa + '<br>';
         })
+
         var zWypisaniaSkladnikowDoAdm = document.getElementById('zWypisaniaSkladnikowDoAdm');
         zWypisaniaSkladnikowDoAdm.addEventListener('click', () => {
             this.adminD1[0].style.display = "block";
             this.adminD5[0].style.display = "none";
+        })
+
+        var przejscieNaHistorie = document.getElementById('przejscieNaHistorie');
+        przejscieNaHistorie.addEventListener('click', () => {
+            this.adminD1[0].style.display = "none";
+            this.adminD6[0].style.display = "block";
+
+            var zHistoriiDoAdmina = document.getElementById('zHistoriiDoAdmina');
+            zHistoriiDoAdmina.addEventListener('click', () => {
+                this.adminD1[0].style.display = "block";
+                this.adminD6[0].style.display = "none";
+            })
         })
     },
 
@@ -235,88 +253,106 @@ const automat = {
 
         var numerID = produkt;
         console.log(numerID);
-        if (!this.tablicaProduktow[numerID]) {
-            console.log('nie ma produktu')
+        if (!this.tablicaProduktow[numerID][0]) {
+            alert('nie ma produktu')
         } else {
             console.log('jest produkt')
             this.client[0].style.display = 'none'
             this.payment[0].style.display = 'block'
-            this.zaplata=0;
-            sumaPlacy.innerHTML=''
-            
-
-            var zaplata2 = document.getElementById('zaplata2'); 
-            var zaplata5 = document.getElementById('zaplata5'); 
+            this.zaplata = 0;
+            sumaPlacy.innerHTML = ''
+            var zaplata010 = document.getElementById('zaplata010');
+            var zaplata020 = document.getElementById('zaplata020');
+            var zaplata050 = document.getElementById('zaplata050');
+            var zaplata1 = document.getElementById('zaplata1');
+            var zaplata2 = document.getElementById('zaplata2');
+            var zaplata5 = document.getElementById('zaplata5');
             var zaplata10 = document.getElementById('zaplata10');
             var zaplata20 = document.getElementById('zaplata20');
             var zaplata50 = document.getElementById('zaplata50');
             var zaplata100 = document.getElementById('zaplata100');
             var zaplata200 = document.getElementById('zaplata200');
             var zaplata500 = document.getElementById('zaplata500');
-            zaplata2.addEventListener('click' , () =>{
+            zaplata010.onclick = () => {
                 automat.zliczaniePlatnosci(2)
-            })
-            zaplata5.addEventListener('click' , () =>{
+            }
+            zaplata020.onclick = () => {
+                automat.zliczaniePlatnosci(2)
+            }
+            zaplata050.onclick = () => {
+                automat.zliczaniePlatnosci(2)
+            }
+            zaplata1.onclick = () => {
+                automat.zliczaniePlatnosci(2)
+            }
+            zaplata2.onclick = () => {
+                automat.zliczaniePlatnosci(2)
+            }
+            zaplata5.onclick = () => {
                 automat.zliczaniePlatnosci(5)
-            })
-            zaplata10.addEventListener('click' , () =>{
+            }
+            zaplata10.onclick = () => {
                 automat.zliczaniePlatnosci(10)
-            })
-            zaplata20.addEventListener('click' , () =>{
+            }
+            zaplata20.onclick = () => {
                 automat.zliczaniePlatnosci(20)
-            })
-            zaplata50.addEventListener('click' , () =>{
+            }
+            zaplata50.onclick = () => {
                 automat.zliczaniePlatnosci(50)
-            })
-            zaplata100.addEventListener('click' , () =>{
+            }
+            zaplata100.onclick = () => {
                 automat.zliczaniePlatnosci(100)
-            })
-            zaplata200.addEventListener('click' , () =>{
+            }
+            zaplata200.onclick = () => {
                 automat.zliczaniePlatnosci(200)
-            })
-            zaplata500.addEventListener('click' , () =>{
+            }
+            zaplata500.onclick = () => {
                 automat.zliczaniePlatnosci(500)
-            })
+            }
             var zaplataPotwierdzenie = document.getElementById('zaplataPotwierdzenie');
-            zaplataPotwierdzenie.addEventListener('click', () => {
-                if(this.zaplata > this.tablicaProduktow[numerID][1]) {
+            zaplataPotwierdzenie.onclick = () => {
+                if (this.zaplata > this.tablicaProduktow[numerID][1]) {
                     automat.pobranieSkladIDoHis(numerID);
                 } else {
                     alert('za mało płacisz')
                 }
 
-            })
+            }
 
 
         }
 
     },
     zliczaniePlatnosci(ile) {
-        this.zaplata=this.zaplata+ile;
+        this.zaplata = this.zaplata + ile;
         var sumaPlacy = document.getElementById('sumaPlacy');
-        sumaPlacy.innerHTML= this.zaplata + 'Zł';
+        sumaPlacy.innerHTML = this.zaplata + 'Zł';
         console.log('wykonane')
     },
-    
-    pobranieSkladIDoHis(coTo){
-        console.log( this.tablicaProduktow[coTo][0]);
-        if(this.mleko>=this.tablicaProduktow[coTo][3] && this.kawa>=this.tablicaProduktow[coTo][2]){//2 - kawa  3-mleko
-            this.mleko=this.mleko-this.tablicaProduktow[coTo][3];
-            this.kawa=this.kawa-this.tablicaProduktow[coTo][2];
+
+    pobranieSkladIDoHis(coTo) {
+        console.log(this.tablicaProduktow[coTo][0]);
+        if (this.mleko >= this.tablicaProduktow[coTo][3] && this.kawa >= this.tablicaProduktow[coTo][2]) {//2 - kawa  3-mleko
+            this.mleko = this.mleko - this.tablicaProduktow[coTo][3];
+            this.kawa = this.kawa - this.tablicaProduktow[coTo][2];
             automat.reszta(this.tablicaProduktow[coTo][1]);
             this.payD1[0].style.display = 'none';
             this.payD2[0].style.display = 'block';
+            var historiaKupowania = document.getElementById('historiaKupowania');
+            historiaKupowania.innerHTML += 'Kupiono: ' + this.tablicaProduktow[coTo][0] + " &nbsp koszt: " + this.tablicaProduktow[coTo][1];
+            historiaKupowania.innerHTML += ' &nbsp data: ' + data.getDate() + '.' + (data.getMonth() + 1) + '.' + data.getFullYear() + ' &nbsp godzina: ' + data.getHours() + ':' + data.getMinutes();
+            historiaKupowania.innerHTML += " &nbsp zapłacono: " + this.zaplata + " &nbsp reszta: " + (this.zaplata - this.tablicaProduktow[coTo][1]) + '<br>';
         } else {
-            alert ('za mała liczba składników do produkcji '+ this.tablicaProduktow[coTo][0] )
+            alert('za mała liczba składników do produkcji ' + this.tablicaProduktow[coTo][0])
             this.client[0].style.display = 'block';
             this.payment[0].style.display = 'none';
         }
-        
+
     },
 
     reszta(koszt) {
-        var bilon = [0.10, 0.20, 0.50, 1, 2, 5, 10, 20, 50, 100];
-        var ilosc = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var bilon = [0.01, 0.02, 0.05, 0.10, 0.20, 0.50, 1, 2, 5, 10, 20, 50, 100, 200, 500];
+        var ilosc = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         var reszty = this.zaplata - koszt;
         for (let numer = bilon.length - 1; numer >= 0;) {
             if (bilon[numer] <= reszty) {
@@ -334,11 +370,11 @@ const automat = {
             }
         }
         var powrutDoClienta = document.getElementById('powrutDoClienta');
-        powrutDoClienta.addEventListener('click',()=>{
+        powrutDoClienta.addEventListener('click', () => {
             this.client[0].style.display = 'block';
             this.payment[0].style.display = 'none';
             this.payD1[0].style.display = 'block';
-            this.payD2[0].style.display ='none' ;
+            this.payD2[0].style.display = 'none';
         })
 
     },
@@ -351,5 +387,4 @@ automat.panelClienta();
 //dokończyć z odejmowaniem ilości mleka i td 'pobranieSkladIDoHis(coTo)'
 automat.przeNaAdm();
 automat.panelAdmina();
-
-
+var data = new Date();
