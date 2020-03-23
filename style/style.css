@@ -56,6 +56,12 @@ body{
     height: 700px;
     width: 700px;
 }
+.adminD6{
+    background-color: rgb(231, 152, 96);
+    display: none;
+    height: 700px;
+    width: 700px;
+}
 
 .klawiatura{
     background-color: salmon;
